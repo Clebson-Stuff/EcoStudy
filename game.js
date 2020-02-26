@@ -49,11 +49,11 @@ startGame = () =>{
 
 getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter >= MAX_QUESTION){
+        localStorage.setItem('mostRecentScore',score);
         return window.location.assign('/end.html');
     }
     questionCounter++;
     elQuestionCounter.innerText = `${questionCounter}/${MAX_QUESTION}`;
-    elScore.innerText = score;
     const questionIndex = Math.floor(Math.random() * availableQuestions.length);
     currentQuestion = availableQuestions[questionIndex];
     question.innerText = currentQuestion.question;
@@ -73,17 +73,19 @@ choices.forEach(choice => {
         const selectedAnswer = selectedChoice.dataset["number"];
         const classToApply = selectedAnswer == currentQuestion.answer ? 'correct':'incorrect';
         if(selectedAnswer == currentQuestion.answer){
-            score += CORRECT_BONUS;
+            incrementScore(CORRECT_BONUS);
         }
         selectedChoice.parentElement.classList.add(classToApply);
         setTimeout(() => {
             selectedChoice.parentElement.classList.remove(classToApply);
-
             getNewQuestion();
-
         }, 1000);
     });
 }); 
+incrementScore = num => {
+    score += num;
+    elScore.innerText = score;
+}
 startGame();
 
 

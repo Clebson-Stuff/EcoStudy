@@ -36,3 +36,7 @@
 .correct p, .incorrect p{
     color: #f2f2f2; 
 }
+#hud{
+    display: flex;
+    justify-content: space-between;
+}
