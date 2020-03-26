@@ -139,7 +139,7 @@ const MAX_QUESTION = questions.length;
 startGame = () =>{
     questionCounter = 0;
     score = 0;
-    availableQuestions = randomQuestion();
+    availableQuestions = questions;
     console.log(availableQuestions);
     getNewQuestion();
 };
