@@ -6,7 +6,7 @@ const elScore = document.getElementById('score');
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
-let questionCounter = 0.
+let questionCounter = 0
 let availableQuestions = [];
 
 let questions = [
@@ -134,7 +134,7 @@ let questions = [
 
 //Constants
 const CORRECT_BONUS = 10;
-const MAX_QUESTION = 5;
+const MAX_QUESTION = questions.length;
 
 startGame = () =>{
     questionCounter = 0;
@@ -145,27 +145,13 @@ startGame = () =>{
 };
 
 randomQuestion = (arr) =>{
-    var num = [];
-    while(num.length<MAX_QUESTION){
-        var aleatorio = Math.floor(Math.random() * MAX_QUESTION);
-        if(num.indexOf(aleatorio) == -1){
-            num.push(aleatorio);
-        }
-    }
-    console.log(num);
-    console.log(num.length);
-    let questionsReturn  = [];
-    for(var i =0; i<MAX_QUESTION;i++){
-        questionsReturn.push(questions[num[i]]);
-    }
-    console.log
-    return questionsReturn;
+    return arr;
 } 
 
 getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter >= MAX_QUESTION){
         localStorage.setItem('mostRecentScore',score);
-        return window.location.assign('/end.html');
+        return window.location.assign('/end2.html');
     }
     questionCounter++;
     elQuestionCounter.innerText = `${questionCounter}/${MAX_QUESTION}`;
