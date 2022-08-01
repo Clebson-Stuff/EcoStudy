@@ -151,7 +151,7 @@ randomQuestion = (arr) =>{
 getNewQuestion = () => {
     if(availableQuestions.length === 0 || questionCounter >= MAX_QUESTION){
         localStorage.setItem('mostRecentScore',score);
-        return window.location.assign('/end2.html');
+        return window.location.assign('./end2.html');
     }
     questionCounter++;
     elQuestionCounter.innerText = `${questionCounter}/${MAX_QUESTION}`;
